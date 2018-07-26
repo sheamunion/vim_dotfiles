@@ -1,0 +1,51 @@
+if &compatible
+  set nocompatible
+end
+
+if expand('<sfile>') == '/etc/vim/vimrc.bundles'
+  call plug#begin('/etc/vim/plugged')
+else
+  call plug#begin('~/.vim/plugged')
+endif
+
+Plug 'benmills/vim-commadown'
+Plug 'benmills/vimux'
+Plug 'bkad/CamelCaseMotion'
+Plug 'ddrscott/vim-side-search'
+Plug 'godlygeek/tabular' | Plug 'plasticboy/vim-markdown'
+Plug 'henrik/vim-indexed-search'
+Plug 'janko-m/vim-test'
+Plug 'jgdavey/vim-turbux'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'jtratner/vim-flavored-markdown'
+if expand('<sfile>') == '/etc/vim/vimrc.bundles'
+  Plug 'junegunn/fzf', { 'tag': '0.16.7', 'dir': '/etc/vim/fzf', 'do': './install --bin' }
+else
+  Plug 'junegunn/fzf', { 'tag': '0.16.7', 'dir': '~/.fzf', 'do': './install --bin' }
+endif
+Plug 'junegunn/fzf.vim'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'mattn/emmet-vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/Align'
+Plug 'vim-scripts/matchit.zip'
+
+if v:version >= 800 || has('nvim')
+  Plug 'w0rp/ale'
+endif
+if filereadable(expand("~/.vimrc.bundles.local"))
+  source ~/.vimrc.bundles.local
+endif
+
+call plug#end()
